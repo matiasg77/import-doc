@@ -14,6 +14,65 @@
 	],
 	"main": "./extension.js",
 	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Import Doc configuration",
+			"properties": {
+				"importDocLink.typescriptExtensions": {
+					"type": "array",
+					"default": [
+						"\\.tsx?$"
+					],
+					"description": "File extensions to be parsed by the Typescript parser"
+				},
+				"importDocLink.javascriptExtensions": {
+					"type": "array",
+					"default": [
+						"\\.jsx?$"
+					],
+					"description": "File extensions to be parsed by the Javascript parser"
+				},
+				"importDocLink.vueExtensions": {
+				  "type": "array",
+				  "default": [
+					"\\.vue$"
+				  ],
+				  "description": "File extensions to be parsed by the Vue parser"
+				},
+				"importDocLink.svelteExtensions": {
+				  "type": "array",
+				  "default": [
+					"\\.svelte$"
+				  ],
+				  "description": "File extensions to be parsed by the Svelte parser"
+				},
+				"importDocLink.bundleSizeDecoration": {
+					"type": "string",
+					"default": "both",
+					"enum": [
+						"both",
+						"minified",
+						"gzipped"
+					],
+					"description": "Which bundle size to display"
+				},
+				"importDocLink.showCalculatingDecoration": {
+					"type": "boolean",
+					"default": true,
+					"description": "Display the 'calculating' decoration when starting to calculate the size"
+				},
+				"importDocLink.debug": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable debug logging"
+				},
+				"importDocLink.timeout": {
+					"type": "number",
+					"default": 10000,
+					"description": "Size calculation timeout in milliseconds (requires restart)"
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "importDocLink.toggle",
