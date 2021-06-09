@@ -55,10 +55,8 @@ let emitters = {};
  * @param {TextDocument} document
  */
 function processActiveFile(document) {
-	console.log("Process: ", language(document))
 
-	//if (document && language(document)) {
-	if (document) {
+	if (document && language(document)) {
 		const { fileName } = document
 		if (emitters[fileName]) {
 			emitters[fileName].removeAllListeners()

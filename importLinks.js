@@ -15,11 +15,9 @@ const importDoc = (fileName, text, language, config = { maxCallTime: Infinity, c
             promises.map((promise) =>
                 promise.then((packageInfo) => {
                     emitter.emit('calculated', packageInfo)
-                    console.log('packageInfo :', packageInfo);
                     return packageInfo
                 })
             )
-            console.log('imports :', cleanImports);
 
             const packages = (await Promise.all(promises)).filter((x) => x)
             emitter.emit('done', packages)

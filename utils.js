@@ -53,9 +53,17 @@ function getPackageDirectory(pkg) {
 }
 
 function getPackageVersion(pkg) {
-  console.log('pkg :', pkg);
+  return !buildInModules.includes(pkg.name) && getPackageJson(pkg).version;
+}
 
-  return !buildInModules.includes(pkg.name) && `${getPackageName(pkg)}@${getPackageJson(pkg).version}`;
+function getRepositoryURL(pkg) {
+  const repoURLfromPackageJson = !buildInModules.includes(pkg.name) ? getPackageJson(pkg).repository.url : false
+  let repoURL = repoURLfromPackageJson && repoURLfromPackageJson.match(/\bhttps?:\/\/\S+/gi) 
+  return (Array.isArray(repoURL) && repoURL.length > 0) ? repoURL[0] : false
+}
+
+function getHomepageURL(pkg) {
+  return !buildInModules.includes(pkg.name) && getPackageJson(pkg).homepage;
 }
 
 function getPackageJson(pkg) {
@@ -68,4 +76,6 @@ module.exports = {
   getPackageDirectory,
   getPackageVersion,
   parseJson,
+  getRepositoryURL,
+  getHomepageURL
 };
