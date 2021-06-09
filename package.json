@@ -33,18 +33,18 @@
 					"description": "File extensions to be parsed by the Javascript parser"
 				},
 				"importDocLink.vueExtensions": {
-				  "type": "array",
-				  "default": [
-					"\\.vue$"
-				  ],
-				  "description": "File extensions to be parsed by the Vue parser"
+					"type": "array",
+					"default": [
+						"\\.vue$"
+					],
+					"description": "File extensions to be parsed by the Vue parser"
 				},
 				"importDocLink.svelteExtensions": {
-				  "type": "array",
-				  "default": [
-					"\\.svelte$"
-				  ],
-				  "description": "File extensions to be parsed by the Svelte parser"
+					"type": "array",
+					"default": [
+						"\\.svelte$"
+					],
+					"description": "File extensions to be parsed by the Svelte parser"
 				},
 				"importDocLink.bundleSizeDecoration": {
 					"type": "string",
@@ -100,6 +100,7 @@
 		"@babel/parser": "^7.12.7",
 		"@babel/traverse": "^7.12.9",
 		"@babel/types": "^7.12.7",
-		"cheerio": "^1.0.0-rc.9"
+		"cheerio": "^1.0.0-rc.9",
+		"pkg-dir": "^5.0.0"
 	}
 }

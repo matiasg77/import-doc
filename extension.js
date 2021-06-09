@@ -66,12 +66,13 @@ function processActiveFile(document) {
 		const { timeout } = workspace.getConfiguration('importCost');
 		emitters[fileName] = importDoc(fileName, document.getText(),  language(document), { concurrent: true, maxCallTime: timeout });
 		emitters[fileName].on('error', e => console.log('onError: ', e)) //logger.log(`importCost error: ${e}`)
-		//emitters[fileName].on('start', packages => flushDecorations(fileName, packages));
 		emitters[fileName].on('start', packages => console.log('packages :', packages))
-		//emitters[fileName].on('calculated', packageInfo => calculated(packageInfo));
 		emitters[fileName].on('calculated', packageInfo => console.log("calculate: ", packageInfo));
-		//emitters[fileName].on('done', packages => flushDecorations(fileName, packages));
 		emitters[fileName].on('done', packages => console.log('Done: ', packages));
+		
+		//emitters[fileName].on('start', packages => flushDecorations(fileName, packages));
+		//emitters[fileName].on('calculated', packageInfo => calculated(packageInfo));
+		//emitters[fileName].on('done', packages => flushDecorations(fileName, packages));
 	}
 }
 
