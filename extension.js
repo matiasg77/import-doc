@@ -1,13 +1,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-//import {ExtensionContext, TextDocument, window, workspace, commands} from 'vscode';
 const { window, workspace, commands } = require('vscode');
 const { JAVASCRIPT, TYPESCRIPT, VUE, SVELTE } = require('./parser');
 const { importDoc } = require('./importLinks')
-
-
-//import {JAVASCRIPT, TYPESCRIPT, VUE, SVELTE} from './parser'
-
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
