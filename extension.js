@@ -1,13 +1,17 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-const { window, workspace, commands } = require('vscode');
+const { window, workspace, commands, languages, Hover } = require('vscode');
 const { JAVASCRIPT, TYPESCRIPT, VUE, SVELTE } = require('./parser');
 const { importDoc } = require('./importLinks')
+const { flushDecorations } = require('./decorator')
+const hover = require('./hover')
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
 let isActive = true
+
+let pkgs
 
 /**
  * @param {ExtensionContext} context
@@ -38,6 +42,16 @@ function activate(context) {
 	});
 
 	context.subscriptions.push(disposable);
+
+	context.subscriptions.push(
+		languages.registerHoverProvider('javascript', {
+			provideHover(document, position, token) {
+                return hover.provideAddressActionHover(document, position, token, pkgs);
+            }
+        })
+    )
+
+
 }
 
 //const processActiveFile = (doc) => console.log('bien: ', doc)
@@ -57,12 +71,16 @@ function processActiveFile(document) {
 			emitters[fileName].removeAllListeners()
 		}
 		const { timeout } = workspace.getConfiguration('importCost');
-		emitters[fileName] = importDoc(fileName, document.getText(),  language(document), { concurrent: true, maxCallTime: timeout });
+		emitters[fileName] = importDoc(fileName, document.getText(), language(document), { concurrent: true, maxCallTime: timeout });
 		emitters[fileName].on('error', e => console.log('onError: ', e)) //logger.log(`importCost error: ${e}`)
 		emitters[fileName].on('start', packages => console.log('packages :', packages))
 		emitters[fileName].on('calculated', packageInfo => console.log("calculate: ", packageInfo));
-		emitters[fileName].on('done', packages => console.log('Done: ', packages));
-		
+		emitters[fileName].on('done', packages => {
+			console.log('Done: ', packages)
+			pkgs = packages
+			flushDecorations(fileName, packages)
+		});
+
 		//emitters[fileName].on('start', packages => flushDecorations(fileName, packages));
 		//emitters[fileName].on('calculated', packageInfo => calculated(packageInfo));
 		//emitters[fileName].on('done', packages => flushDecorations(fileName, packages));
