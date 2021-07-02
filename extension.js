@@ -5,6 +5,13 @@ const { JAVASCRIPT, TYPESCRIPT, VUE, SVELTE } = require('./parser');
 const { importDoc } = require('./importLinks')
 const hover = require('./hover')
 
+const DOC_SELECTOR = [
+	{ language: JAVASCRIPT},
+    { language: TYPESCRIPT },
+    { language: VUE },
+    { language: SVELTE }
+]
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -14,6 +21,7 @@ let pkgs
 
 /**
  * @param {ExtensionContext} context
+ * @param {TextDocument} document
  */
 function activate(context) {
 
@@ -25,10 +33,8 @@ function activate(context) {
 	window.onDidChangeActiveTextEditor(ev => ev && isActive && processActiveFile(ev.document))
 
 	if (window.activeTextEditor && isActive) {
-
 		processActiveFile(window.activeTextEditor.document);
 	}
-
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
@@ -43,7 +49,7 @@ function activate(context) {
 	context.subscriptions.push(disposable);
 
 	context.subscriptions.push(
-		languages.registerHoverProvider('javascript', {
+		languages.registerHoverProvider(DOC_SELECTOR, {
 			provideHover(document, position, token) {
                 return hover.provideAddressActionHover(document, position, token, pkgs);
             }
