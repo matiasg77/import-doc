@@ -3,7 +3,6 @@
 const { window, workspace, commands, languages, Hover } = require('vscode');
 const { JAVASCRIPT, TYPESCRIPT, VUE, SVELTE } = require('./parser');
 const { importDoc } = require('./importLinks')
-const { flushDecorations } = require('./decorator')
 const hover = require('./hover')
 
 // this method is called when your extension is activated
@@ -75,7 +74,6 @@ function processActiveFile(document) {
 		emitters[fileName].on('done', packages => {
 			console.log('Done: ', packages)
 			pkgs = packages
-			//flushDecorations(fileName, packages)
 		});
 	}
 }
@@ -106,7 +104,3 @@ module.exports = {
 	activate,
 	deactivate
 }
-
-//emitters[fileName].on('error', e => console.log('onError: ', e)) //logger.log(`importCost error: ${e}`)
-//emitters[fileName].on('start', packages => console.log('packages :', packages))
-//emitters[fileName].on('calculated', packageInfo => console.log("calculate: ", packageInfo));
