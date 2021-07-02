@@ -78,8 +78,6 @@ function getBuildInModuleDocURL(pkg) {
 }
 
 function getNPMURL(pkg) {
-console.log('pkg :', pkg.name);
-  
   return !buildInModules.includes(pkg.name) ? npmURL + pkg.name + '/v/' + getPackageVersion(pkg) : null
 }
 
