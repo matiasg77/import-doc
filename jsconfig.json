@@ -5,7 +5,8 @@
 		"checkJs": false,  /* Typecheck .js files. */
 		"lib": [
 			"es6"
-		]
+		],
+		"rootDir": "src"
 	},
 	"exclude": [
 		"node_modules"
