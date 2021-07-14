@@ -2,7 +2,7 @@
 	"name": "import-doc-link",
 	"displayName": "import-doc-link",
 	"description": "Link to the module documentation",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
@@ -10,7 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:importDocLink.toggle"
+		"onCommand:importDocLink.toggle",
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact",
+		"onLanguage:vue",
+		"onLanguage:svelte"
 	],
 	"main": "./src/extension.js",
 	"contributes": {
@@ -45,21 +51,6 @@
 						"\\.svelte$"
 					],
 					"description": "File extensions to be parsed by the Svelte parser"
-				},
-				"importDocLink.bundleSizeDecoration": {
-					"type": "string",
-					"default": "both",
-					"enum": [
-						"both",
-						"minified",
-						"gzipped"
-					],
-					"description": "Which bundle size to display"
-				},
-				"importDocLink.showCalculatingDecoration": {
-					"type": "boolean",
-					"default": true,
-					"description": "Display the 'calculating' decoration when starting to calculate the size"
 				},
 				"importDocLink.debug": {
 					"type": "boolean",

@@ -133,10 +133,6 @@ function getPackageName(node) {
     : node.arguments[0].value;
 }
 
-/* function getPackagesJS(fileName, source, language, lineOffset = 0){
-    console.log("filename: ", fileName)
-}
- */
 
 module.exports = {
     getPackagesJS

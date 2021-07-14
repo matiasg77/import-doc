@@ -5,13 +5,13 @@ function provideAddressActionHover(document, position, token, pkgs) {
     let index = pkgs.findIndex(checkLine)
 
     let addressHover = ''
-    addressHover += pkgs[index].homepageURL ? `[Homepage](${pkgs[index].homepageURL}) | ` : ''
-    addressHover += pkgs[index].npmURL ? `[NPM](${pkgs[index].npmURL}) | ` : ''
-    addressHover += pkgs[index].repositoryURL ? `[${isGithub(pkgs[index].repositoryURL) ? 'Github' : 'Repository'}](${pkgs[index].repositoryURL}) | ` : ''
-    addressHover += pkgs[index].googleSearch ? `🌎 [Google](${pkgs[index].googleSearch}) | ` : ''
+    addressHover += pkgs[index].homepageURL ? `[Homepage](${pkgs[index].homepageURL})  |  ` : ''
+    addressHover += pkgs[index].npmURL ? `[NPM](${pkgs[index].npmURL})  |  ` : ''
+    addressHover += pkgs[index].repositoryURL ? `[${isGithub(pkgs[index].repositoryURL) ? 'Github' : 'Repository'}](${pkgs[index].repositoryURL})  |  ` : ''
+    addressHover += pkgs[index].googleSearch ? `🌎 [Google](${pkgs[index].googleSearch})  |  ` : ''
 
     if (addressHover) {
-        addressHover = addressHover.slice(0, -3)
+        addressHover = addressHover.slice(0, -4)
     } else {
         return
     }
