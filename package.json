@@ -2,6 +2,7 @@
 	"name": "import-doc-link",
 	"displayName": "import-doc-link",
 	"description": "Link to the module documentation",
+	"license": "MIT",
 	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.56.0"
@@ -18,6 +19,15 @@
 		"onLanguage:vue",
 		"onLanguage:svelte"
 	],
+	"keywords": [
+		"import",
+		"require",
+		"doc",
+		"documentation",
+		"packages",
+		"package",
+		"npm"
+	  ],
 	"main": "./src/extension.js",
 	"contributes": {
 		"configuration": {
@@ -94,5 +104,11 @@
 		"cheerio": "^1.0.0-rc.9",
 		"memory-cache": "^0.2.0",
 		"pkg-dir": "^5.0.0"
+	},
+	"icon": "images/importDocLogo.png",
+	"homepage": "https://github.com/matiasg77/import-doc/README.md",
+	"repository": {
+	  "type": "git",
+	  "url": "https://github.com/matiasg77/import-doc"
 	}
 }

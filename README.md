@@ -1,7 +1,8 @@
-
 # Import Doc VSCode Extension
 
 This extension will display links to documentations
+
+![Example Image](https://res.cloudinary.com/blahbox/image/upload/v1627074774/importDoc/importDoc.gif)
 
 ## Features
 

@@ -4,7 +4,7 @@ function provideAddressActionHover(document, position, token, pkgs) {
     const checkLine = pkg => pkg.line === position.line + 1
     let index = pkgs.findIndex(checkLine)
 
-    let addressHover = ''
+    let addressHover = `Doc for **${pkgs[index].name}**: `
     addressHover += pkgs[index].homepageURL ? `[Homepage](${pkgs[index].homepageURL})  |  ` : ''
     addressHover += pkgs[index].npmURL ? `[NPM](${pkgs[index].npmURL})  |  ` : ''
     addressHover += pkgs[index].repositoryURL ? `[${isGithub(pkgs[index].repositoryURL) ? 'Github' : 'Repository'}](${pkgs[index].repositoryURL})  |  ` : ''
