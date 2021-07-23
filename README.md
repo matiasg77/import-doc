@@ -1,6 +1,6 @@
 # Import Doc VSCode Extension
 
-This extension will display links to documentations
+This extension will display links to modules documentations on hover import statement
 
 ![Example Image](https://res.cloudinary.com/blahbox/image/upload/v1627074774/importDoc/importDoc.gif)
 

@@ -1,9 +1,9 @@
 {
 	"name": "import-doc-link",
-	"displayName": "import-doc-link",
+	"displayName": "Import Doc",
 	"description": "Link to the module documentation",
 	"license": "MIT",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
@@ -111,5 +111,9 @@
 	"repository": {
 	  "type": "git",
 	  "url": "https://github.com/matiasg77/import-doc"
-	}
+	},
+	"bugs": {
+		"url": "https://github.com/matiasg77/import-doc/issues",
+		"email": "matias.goncalves@gmail.com"
+	  },
 }
