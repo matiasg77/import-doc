@@ -107,6 +107,7 @@
 	},
 	"icon": "images/importDocLogo.png",
 	"homepage": "https://github.com/matiasg77/import-doc/README.md",
+	"publisher": "MatiasG",
 	"repository": {
 	  "type": "git",
 	  "url": "https://github.com/matiasg77/import-doc"
